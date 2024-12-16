@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+
 const TodoDetails = () => {
   const { id } = useParams();
   const [todo, setTodo] = useState(null);
@@ -14,11 +15,17 @@ const TodoDetails = () => {
   if (!todo) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h2>Todo Details</h2>
-      <p><strong>ID:</strong> {todo.id}</p>
-      <p><strong>Title:</strong> {todo.title}</p>
-      <p><strong>Completed:</strong> {todo.completed ? 'Yes' : 'No'}</p>
+    <div className="container todo-details">
+      <h1>Todo Details</h1>
+      <p>
+        <strong>ID:</strong> {todo.id}
+      </p>
+      <p>
+        <strong>Title:</strong> {todo.title}
+      </p>
+      <p>
+        <strong>Completed:</strong> {todo.completed ? 'Yes' : 'No'}
+      </p>
     </div>
   );
 };

@@ -3,56 +3,92 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background-color: #f4f6f8;
+  background-color: #f0f7ff; /* Light blue background */
   color: #333;
-  line-height: 1.6;
+  
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 10px;
+  width: 100%;
 }
 
-h1 {
+/* Header */
+header {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 1.8rem;
+}
+
+header h1 {
+  font-size: 2rem;
   color: #2c3e50;
 }
 
-/* Container */
+/* Main Container */
 .container {
-  width: 100%;
-  max-width: 800px;
+  width: 80%;
+  margin: 0 auto;
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Search Bar */
 .search-bar {
-  display: flex;
-  justify-content: center;
   margin-bottom: 20px;
 }
 
 .search-bar input {
   width: 100%;
-  max-width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px;
+  border: 2px solid #d6e4f5;
+  border-radius: 6px;
   font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
 .search-bar input:focus {
+  border-color: #2980b9; /* Highlighted blue border */
+}
+
+/* Add Todo Section */
+.add-todo {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-todo input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #d6e4f5;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.add-todo input:focus {
   border-color: #2980b9;
-  box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+.add-todo button {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.add-todo button:hover {
+  background-color: #217dbb;
 }
 
 /* Todo List */
@@ -62,130 +98,88 @@ ul.todo-list {
 }
 
 ul.todo-list li {
-  background: #ecf0f1;
-  padding: 10px 15px;
-  margin: 8px 0;
-  border-radius: 5px;
-  transition: all 0.3s;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #f9fbff;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+ul.todo-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 ul.todo-list li a {
   text-decoration: none;
-  color: #2c3e50;
+  color: #2980b9;
   font-weight: bold;
 }
 
-ul.todo-list li:hover {
-  background: #d5dbdb;
-  transform: translateY(-2px);
+ul.todo-list li a:hover {
+  text-decoration: underline;
 }
 
-ul.todo-list li a:hover {
-  color: #2980b9;
+/* Delete Button */
+.todo-list .delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.todo-list .delete-btn:hover {
+  background-color: #c0392b;
 }
 
 /* Pagination */
 .pagination {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Ensures pagination wraps properly on small screens */
   gap: 8px;
-  margin-top: 10px;
+  flex-wrap: wrap;
 }
 .pagination li {
   list-style-type: none;
 }
-
 .pagination .page-item button {
-  border: none;
   background-color: #3498db;
   color: white;
   padding: 8px 12px;
   border-radius: 4px;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
   font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
 .pagination .page-item button:hover {
-  background-color: #2980b9;
-  transform: scale(1.05);
+  background-color: #217dbb;
 }
-
-.pagination .page-item button:focus {
-  outline: none;
-}
-
-
-/* Add Todo */
-.add-todo {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  gap: 10px;
-}
-
-.add-todo input {
-  width: 70%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.add-todo button {
-  padding: 10px 15px;
-  background-color: #2ecc71;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: 0.3s;
-}
-
-.add-todo button:hover {
-  background-color: #27ae60;
-}
-
-/* Delete Button */
-.delete-btn {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: 0.3s;
-}
-
-.delete-btn:hover {
-  background-color: #c0392b;
-}
-
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  h1 {
+  header h1 {
     font-size: 1.5rem;
   }
 
   .container {
     padding: 15px;
+    width: 95%;
   }
 
+  .add-todo input,
   .search-bar input {
     font-size: 0.9rem;
-    padding: 8px;
-  }
-
-  ul.todo-list li {
-    font-size: 0.9rem;
-    padding: 8px 10px;
+    padding: 10px;
   }
 
   .pagination .page-item button {

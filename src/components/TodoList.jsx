@@ -59,7 +59,7 @@ const TodoList = () => {
 
   return (
     <div className="container">
-      <h1>Todo List</h1>
+     
 
       {/* Search Bar */}
       <div className="search-bar">
